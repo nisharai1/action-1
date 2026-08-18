@@ -1,0 +1,23 @@
+name: my first workflow
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v7
+
+        - name: install the cowsay dependency
+          run: sudo apt-get install cowsay -y
+
+        - name: Generate ASCII artwork
+          run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
+
+        - name: list all the files
+          run: ls -ltra
+
+        - name: read the file
+          run: cat dragon.txt
+
