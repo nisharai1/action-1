@@ -15,9 +15,17 @@ jobs:
         - name: Generate ASCII artwork
           run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
 
+    second_job:
+        needs: first_job
+        runs-on: ubuntu-latest
+        steps:
         - name: list all the files
           run: ls -ltra
 
+    third_job:
+        needs: second_job
+        runs-on: ubuntu-latest
+        steps:
         - name: read the file
           run: cat dragon.txt
 
